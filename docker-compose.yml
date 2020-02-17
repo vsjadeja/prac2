@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  api:
+    container_name: ${APP_NAME}
+    restart: always
+    build:
+      context: ./
+    ports:
+      - 81:8080
+    volumes:
+      # only for development purpose.
+      - ./:/var/www/html
+    networks:
+      - frontend
+      - backend
+
+networks:
+  frontend:
+  backend:
+    external:
+      name: prac1_backend
