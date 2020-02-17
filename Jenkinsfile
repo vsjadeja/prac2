@@ -12,8 +12,8 @@ node {
 
     stage('Test image'){
         /* run unit test inside new image*/
-        docker.image("vjadeja/test:${env.BUILD_NUMBER}").inside() {
-            sh 'php ./vendor/bin/phpunit'
+        docker.image("vjadeja/prac2:${env.BUILD_NUMBER}").inside {
+            sh 'vendor/bin/phpunit'
         }
     }
 
